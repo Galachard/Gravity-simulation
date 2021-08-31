@@ -3,7 +3,6 @@
 # This script is the one that should be ran in order to run the program. It is responsible for the whole GUI.
 
 import sys
-import subprocess
 import simulation
 import scenarios
 import os
@@ -26,17 +25,16 @@ scenario = None
 
 # Creating a function that opens a given directory (by default the '/temp' directory) in the default file explorer of
 # the user's operating system
-if sys.platform == 'darwin':
-    def open_folder(path=TEMP_PATH):  # I don't own a MacOS device so I couldn't check if this works
-        subprocess.check_call(['open', '--', path])
-    os_identified = True
-elif sys.platform == 'linux' or 'linux2':
+
+# MacOS support is not yet implemented as I don't have access to any machine running it
+
+if sys.platform == 'linux' or 'linux2':
     def open_folder(path=TEMP_PATH):
-        subprocess.check_call(['xdg-open', path])
+        os.system(f'xdg-open {path}')
     os_identified = True
 elif sys.platform == 'win32':
     def open_folder(path=TEMP_PATH):
-        subprocess.check_call(['explorer', path])
+        os.system(f'start {os.path.realpath(path)}')
     os_identified = True
 else:
     os_identified = False
@@ -202,8 +200,9 @@ class Application(tk.Frame):
             self.open_temp = tk.Button(self.master, text='View the\nsimulation', command=open_folder)
             self.open_temp.place(relx=0.85, rely=0.9, relheight=0.1, relwidth=0.2, anchor='center')
         else:
-            self.update_status(f"Couldn't open the '/temp' folder. You can find it in the directory this program is"
-                               f"located.\nDone! Time elapsed: {round(time.time() - start_time, 2)} s")
+            self.update_status(f"Detected unsupported operating system. The files are located in '/temp' directory"
+                               f"which is located where the files are"
+                               f"\nDone! Time elapsed: {round(time.time() - start_time, 2)} s")
 
         is_calculating = False
 

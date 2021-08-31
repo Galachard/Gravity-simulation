@@ -5,15 +5,15 @@ effects.
 
 Each bodies' movement is calculated using the following formula
 
-![](https://latex.codecogs.com/svg.latex?\Large&space;F=\frac{Gm_1m_2}{r^2}) 
+F = G * m_1 * m_2 / r^2
 
 where:
 
-- ![](https://latex.codecogs.com/svg.latex?&space;F) - force
-- ![](https://latex.codecogs.com/svg.latex?&space;G) - Gravitational constant
-- ![](https://latex.codecogs.com/svg.latex?&space;m_1) - mass of body 1
-- ![](https://latex.codecogs.com/svg.latex?&space;m_2) - mass of body 2
-- ![](https://latex.codecogs.com/svg.latex?&space;r) - distance between the two bodies
+- F - force
+- G - Gravitational constant
+- m_1 - mass of body 1
+- m_2 - mass of body 2
+- r - distance between the two bodies
 
 ## Running the program
 The program is currently developed for python `3.9`. To run it you will need to download the following libraries:
@@ -53,11 +53,11 @@ contribute. You can either help by improving the code, adding new functionalitie
 scenarios.
 
 ## Requirements
-Part of the script responsible for calculating motion and plotting graph should run on almost any computer. Problems may
-occur with creating the video. Each frame uses approximately 4.5 MB and creating the video uses approximately 1 GB of
-RAM per 100 frames, so make sure to keep that in mind when using the program. If it runs out of RAM it may freeze your
-computer for a while and crash. If you want to create a video, but your computer can't handle it you can change the
-'DPI' constant in `simulation.py`, to lower the resolution and therefore use less storage and RAM.
+Part of the script responsible for calculating motion and plotting graph should run on any machine capable of running
+Python. Problems may occur with creating the video. Each frame uses approximately 4.5 MB and creating the video uses
+approximately 1 GB of RAM per 100 frames, so make sure to keep that in mind when using the program. If it runs out of
+RAM it may freeze your computer for a while and crash. If you want to create a video, but your computer can't handle
+it you can change the 'DPI' constant in `simulation.py`, to lower the resolution and therefore use less storage and RAM.
 
 ## Links
 
